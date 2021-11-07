@@ -1,7 +1,7 @@
 from consultas_funcoes import *
 from consultas_classesmetod import *
 import os
-import warnings
+import time
 from datetime import datetime
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -14,7 +14,7 @@ date_func = datetime.now()
 date_today = date_func.strftime('%d-%m-%Y')
 
 # Directorys Config
-directory_path = f'C:\\consulta_pb\\{date_today}'
+directory_path = f'C:\\consulta_pjepb'
 if not os.path.exists(directory_path):
     os.makedirs(directory_path)
 
