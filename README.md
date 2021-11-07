@@ -44,3 +44,5 @@ Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data
 <div id="demonstracao"/>
 
 ## Demonstração
+[![Vídeo de desempenho disponível](https://user-images.githubusercontent.com/87952070/140660877-507cefee-2009-49cf-9c16-7ca47f257876.png)
+](https://youtu.be/bO7ZXjKHlY4)
