@@ -21,17 +21,9 @@ def formata_numproc(num_proc):
                 processo_formatado += dig
             else:
                 processo_formatado += dig
-        return {
-            'sucesso': 1,
-            'valido': 'Número do processo formatado',
-            'num_proc': processo_formatado
-        }
+        return processo_formatado
     else:
-        return {
-            'sucesso': 0,
-            'valido': 'Número do processo inválido',
-            'num_proc': num_proc
-        }
+        return num_proc
 
 def espere_ate(condicao):
     """
@@ -41,19 +33,6 @@ def espere_ate(condicao):
         try:
             condicao
             return condicao
-        except:
-            continue
-
-def pje_aguardar_carregamento(web_driver):
-    """
-    Recebe como parâmetro o webdriver
-    Aguarda animação de carregamento do PJE
-    """
-    while True:
-        try:
-            carregamento = web_driver.find_element_by_id('_viewRoot:status.start').get_attribute('style')
-            if carregamento == 'display: none;':
-                break
         except:
             continue
 

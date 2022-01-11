@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 import json
-import openpyxl
+import pandas as pd
+
 
 class ConfigDriver:
     def driver_config(downloaddir, user_data_dir=None, page_load=False):
@@ -42,88 +43,55 @@ class ConfigDriver:
 
         return web_driver
 
-class ConfigXlsx():
-    """
-    Classe para configuração para criação, leitura e manuseio de planilhas xlsx
-    Utiliza openpyxl
-    Deve-se atentar aos caminhos passados e nas diferenças entre cada ponto
-    caminho_completo -> O caminho do arquivo xlsx
-    Sheet -> Manuseio geral da planilha, é basicamente o arquivo xlsx
-    planilha_principal -> A planilha dentro do arquivo xlsx que está sendo utilizada
-    """
 
-    def ler_criar_xlsx(caminho_completo):
-        
-        """
-        Ao passar um caminho e o nome do arquivo xlsx ela verica(lê)/cria(lê)
-        :param caminho_completo: Caminho/arquivo.xlsx
-        :return: Retorna o arquivo para manuseio (ex: sheet.save)
-        """
+class ConfigPdXlsx():
+    def __init__(self, consulta, resultado):
+        self.tabela_consulta: str = consulta
+        self.tabela_resultado: str = resultado
+        self.df_consulta: object = None
+        self.df_resultado: object = None
+        self.lista_consultados:list = []
+        self.lista_consultar:list = []
+
+    def ler_xlsx_consulta(self):
         try:
-            planilha = openpyxl.load_workbook(f'{caminho_completo}')
-            print('Arquivo de planilha verificado.')
-            return planilha
-        except:
-            planilha = openpyxl.Workbook()
-            planilha.save(f'{caminho_completo}')
-            print('Arquivo de planilha criado.')
-            return planilha
+            self.df_consulta = pd.read_excel(self.tabela_consulta)
+            return self.df_consulta
+        except Exception as e:
+            return e
 
-    def planilha_principal(arquivo_xlsx):
-        print('Planilha principal interna criada.')
-        return arquivo_xlsx[arquivo_xlsx.sheetnames[0]]
+    def listar_processos_consulta(self):
+        try:
+            for processo in self.df_consulta['Processos'].iteritems():
+                if processo not in self.lista_consultados:
+                    self.lista_consultar.append(processo[1])
+            return self.lista_consultar
+        except Exception as e:
+            return e
 
-    def criar_cabecalho(lista_cabecalho, planilha_principal, arquivo_principal, caminho_completo):
-        """
-        Cria um cabeçalho em planilhas novas #ATENÇÂO! RETORNA A 1º LINHA EM BRANCO
-        Caso a planilha já possua alguma linha preenchida a função não é realizada
-        :param lista_cabecalho: Lista com os nomes que devem encabeçar a planilha
-        :param planilha_principal: Planilha na qual o cabeçalho será adicionado
-        :param arquivo_principal: Planilha aberta através do Workbook
-        :param caminho_completo: Caminho/arquivo.xlsx que deverá ser salvo após a edição
-        """
-        count = 0
-        for lines in planilha_principal:
-            count += 1
-            break
-        if count == 0:
-            for column in range(0, len(lista_cabecalho)):
-                planilha_principal.cell(1, column+1).value = lista_cabecalho[column]
-            print('Cabeçalho criado.')
-            arquivo_principal.save(caminho_completo)
-        else:
-            print('Não foi possível criar cabeçalho. Já há linhas escritas na planilha.')
+    def ler_xlsx_resultado(self):
+        try:
+            self.df_resultado = pd.read_excel(self.tabela_resultado)
+            return self.df_resultado
+        except Exception as e:
+            self.df_resultado = pd.DataFrame({'Processo': [], 'UF': [], 'Movimentação': [], 'Data da Movimentação': [], 'Feedback': [], 'URL Consulta': []})
+            self.df_resultado.to_excel(self.tabela_resultado, index=False)
+            return self.df_resultado
 
-    def linha_planilha(planilha_principal):
-        """
-        Função analisa quantas linhas já estão preenchidas na planilha
-        :return: Retorna quantidade de linhas+1, sem risco de sobrescrever alguma informação
-        """
-        linha_planilha = 0
-        for linha in planilha_principal:
-            linha_planilha += 1
-        print(f'Total de linhas: {linha_planilha}. Próxima linha a escrever: {linha_planilha+1}')
-        return linha_planilha+1
+    def ler_processos_consultados(self):
+        try:
+            for processo in self.df_resultado['Processo'].iteritems():
+                if processo not in self.lista_consultados:
+                    self.lista_consultados.append(processo[1])
+            return self.lista_consultados
+        except Exception as e:
+            return e
 
+    def anotar_consulta(self, lista_dados):
+        try:
+            self.df_resultado.loc[len(self.df_resultado.index)] = lista_dados
+            self.df_resultado.to_excel(self.tabela_resultado, index=False)
+        except Exception as e:
+            print(e)
+            return e
 
-    def escrever_planilha(planilha_principal, arquivo_principal, caminho_completo, quantidade_colunas, linha_atual, lista_dados):
-        for coluna in range(0, quantidade_colunas):
-            try:
-                planilha_principal.cell(linha_atual, coluna+1).value = lista_dados[coluna]
-            except IndexError:
-                planilha_principal.cell(linha_atual, coluna+1).value = ' '
-
-        arquivo_principal.save(caminho_completo)
-
-
-if __name__ == '__main__':
-    pc = ConfigXlsx
-    planilha_caminho = 'C:\\Users\\adevv\\Desktop\\planilha_teste.xlsx'
-    planilha_arquivo = pc.ler_criar_xlsx(planilha_caminho)
-    planilha_principal = pc.planilha_principal(planilha_arquivo)
-    lista_cabecalho = ['Coluna 1', 'Coluna 2', 'Coluna 3']
-    pc.criar_cabecalho(lista_cabecalho, planilha_principal, planilha_arquivo, planilha_caminho)
-    linha_atual = pc.linha_planilha(planilha_principal)
-
-    pc.escrever_planilha(planilha_principal, planilha_arquivo, planilha_caminho, 3, linha_atual, ['a', 'b'])
-    linha_atual += 1
