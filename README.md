@@ -22,9 +22,10 @@ Trata-se de automação (bot) construída em Python, que realiza consultas proce
 
 ### Utilização:
 * A automação consome uma planilha que deve ser nomeada com a data do dia, em formato dd-mm-aaaa, como por exemplo: 07-11-2021.xlsx
-* A referida planilha deve estar dentro da pasta C:/consulta_pjepb
+* A referida planilha deve estar dentro da pasta C:/consulta_pje
 * Os números dos processos devem estar preenchidos na primeira coluna, em linhas separadas, podendo estar em formato apenas numérico ou com seus devidos caracteres especiais (ex.: 08020154020208150251 ou 0802015-40.2020.8.15.0251)
-* Os processos devem pertencer, obrigatoriamente, a Justiça Estadual da Paraíba, estando em curso junto ao sistema PJE.
+* A primeira linha da planilha deve conter o nome Processos
+* Os processos devem pertencer, obrigatoriamente, a qualquer UF que utilize o sistema PJE - CNJ.
 
 <div id="funcionalidade"/>
 
