@@ -46,8 +46,8 @@ Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data
 <div id="versoes"/>
 
 ## Versões
-v1.0 - A versão 1 utilizava a biblioteca openpyxl para tratamento dos arquivos XLSX (leitura e anotações);
-v2.0 - A versão 2 utiliza a biblioteca pandas para tratamento dos arquivos XLSX (leitura e anotações), permitindo grande avanço na OO e limpeza do código.
+* v1.0 - A versão 1 utilizava a biblioteca openpyxl para tratamento dos arquivos XLSX (leitura e anotações);
+* v2.0 - A versão 2 utiliza a biblioteca pandas para tratamento dos arquivos XLSX (leitura e anotações), permitindo grande avanço na OO e limpeza do código.
 
 <div id="demonstracao"/>
 
