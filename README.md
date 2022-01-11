@@ -5,6 +5,7 @@
 - [Orientações de uso](#orientacoes)
 - [Arquitetura e Funcionalidade](#funcionalidade)
 - [Demonstração](#demonstracao)
+- [Versões](#versoes)
 
 <div id="sobre"/>
 
@@ -17,7 +18,7 @@ Trata-se de automação (bot) construída em Python, que realiza consultas proce
 ### Bibliotecas:
 * A  automação utiliza a biblioteca Selenium, tendo suporte para todas as versões 3.141.0 ou as mais atuais 4+, dentre outras.
 * O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib chromedriver-autoinstaller
-* Para gestão da planilha é utilizado a biblioteca openpyxl, em qualquer versão.
+* Para gestão da planilha é utilizado a biblioteca pandas, em qualquer versão da lib.
 * As outras bibliotecas já instaladas já são padrões do Python, entre elas: json; os; datetime
 
 ### Utilização:
@@ -41,6 +42,12 @@ A automação foi desenvolvida em uma estrutura a evitar falhas/pausas(parciais 
 
 ### Resultado:
 Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data padrão dd-mm-aaaa-consultas.xlsx, ficando o arquivo disponível no caminho: C:/consulta_pjepb
+
+<div id="versoes"/>
+
+## Versões
+v1.0 - A versão 1 utilizava a biblioteca openpyxl para tratamento dos arquivos XLSX (leitura e anotações);
+v2.0 - A versão 2 utiliza a biblioteca pandas para tratamento dos arquivos XLSX (leitura e anotações), permitindo grande avanço na OO e limpeza do código.
 
 <div id="demonstracao"/>
 
