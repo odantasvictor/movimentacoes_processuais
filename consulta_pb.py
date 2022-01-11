@@ -9,7 +9,7 @@ date_func = datetime.now()
 date_today = date_func.strftime('%d-%m-%Y')
 
 # CONFIGURAÇÃO DE DIRETÓRIOS E ARQUIVOS
-directory_path = f'C:\\consulta_pjepb'
+directory_path = f'C:\\consulta_pje'
 if not os.path.exists(directory_path):
     os.makedirs(directory_path)
 planilha_consulta = f'{directory_path}\\{date_func.strftime("%d-%m-%Y")}.xlsx'
