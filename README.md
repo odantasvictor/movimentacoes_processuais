@@ -10,13 +10,14 @@
 <div id="sobre"/>
 
 ## Sobre
-Trata-se de automação (bot) construída em Python, que realiza consultas processuais, através da consulta pública, e realiza a captura das últimas movimentações (data, hora e movimentação), preenchendo os dados em uma planilha do tipo excel (.xlsx).
+Trata-se de automação (bot) construída em Python 3x, que realiza consultas processuais, através da consulta pública, e realiza a captura das últimas movimentações (data, hora e movimentação), preenchendo os dados em uma planilha do tipo excel (.xlsx).
 
 <div id="orientacoes"/>
 
 ## Orientações de uso -> OBRIGATÓRIO
 ### Bibliotecas:
-* A  automação utiliza a biblioteca Selenium, tendo suporte para todas as versões 3.141.0 ou as mais atuais 4+, dentre outras.
+* Python 3x+, devendo atentar-se ao suporte das libs (consulta disponível no pyreadiness.org)
+* A automação utiliza a biblioteca Selenium, tendo suporte para todas as versões 3.141.0 ou as mais atuais 4+, dentre outras.
 * O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib chromedriver-autoinstaller
 * Para gestão da planilha é utilizado a biblioteca pandas, em qualquer versão da lib.
 * As outras bibliotecas já instaladas já são padrões do Python, entre elas: json; os; datetime
