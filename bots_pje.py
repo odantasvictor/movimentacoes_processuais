@@ -57,7 +57,8 @@ class BotsPje():
             },
             '8.11': {
                 'url': 'https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam',
-                'uf': 'MT'
+                'uf': 'MT',
+                'url_parcial': 'https://pje.tjmt.jus.br',
             },
             '8.15': {
                 'url': 'https://pje.tjpb.jus.br/pje/ConsultaPublica/listView.seam',
@@ -67,11 +68,15 @@ class BotsPje():
             },
             '8.17': {
                 'url': 'https://pje.app.tjpe.jus.br/1g/ConsultaPublica/listView.seam',
-                'uf': 'PE'
+                'uf': 'PE',
+                'seletor_consulta': 'a[onclick*="/1g/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca="]',
+                'url_parcial': 'https://pje.app.tjpe.jus.br',
             },
             '8.18': {
                 'url': 'https://tjpi.pje.jus.br/1g/ConsultaPublica/listView.seam',
-                'uf': 'PI'
+                'uf': 'PI',
+                'seletor_consulta': 'a[onclick*="/1g/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca="]',
+                'url_parcial': 'https://tjpi.pje.jus.br',
             },
             '8.20': {
                 'url': 'https://pje1g.tjrn.jus.br/pje/ConsultaPublica/listView.seam',
