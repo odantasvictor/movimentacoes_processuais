@@ -52,8 +52,9 @@ class BotsPje():
                 'url_parcial': 'https://pje.tjma.jus.br/pje/ConsultaPublica/listView.seam'
             },
             '8.13': {
-                'url': 'https://pje-consulta-publica.tjmg.jus.br/',
-                'uf': 'MG'
+                'url': 'https://pje-consulta-publica.tjmg.jus.br/pje/ConsultaPublica/listView.seam',
+                'uf': 'MG',
+                'url_parcial':'https://pje-consulta-publica.tjmg.jus.br'
             },
             '8.11': {
                 'url': 'https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam',
