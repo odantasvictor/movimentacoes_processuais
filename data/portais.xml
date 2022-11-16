@@ -1,0 +1,15 @@
+<portais>
+    <sistema nome="PJE">
+        <portal uf="BA" codigo_cpj="8.05" url="https://consultapublicapje.tjba.jus.br/pje/ConsultaPublica/listView.seam" seletor="" parcial="" sitekey=""/>
+        <portal uf="DF" codigo_cpj="8.07" url="https://pje.tjdft.jus.br/consultapublica/ConsultaPublica/listView.seam" seletor="" parcial="" sitekey=""/>
+        <portal uf="ES" codigo_cpj="8.08" url="https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam" seletor="a[onclick*='/pje/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://sistemas.tjes.jus.br" sitekey=""/>
+        <portal uf="MA" codigo_cpj="8.10" url="https://pje.tjma.jus.br/pje/ConsultaPublica/listView.seam" seletor="a[onclick*='/pje/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://pje.tjma.jus.br/pje/ConsultaPublica/listView.seam" sitekey=""/>
+        <portal uf="MG" codigo_cpj="8.13" url="https://pje-consulta-publica.tjmg.jus.br/pje/ConsultaPublica/listView.seam" seletor="" parcial="https://pje-consulta-publica.tjmg.jus.br" sitekey=""/>
+        <portal uf="MT" codigo_cpj="8.11" url="https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam" seletor="" parcial="https://pje.tjmt.jus.br" sitekey=""/>
+        <portal uf="PB" codigo_cpj="8.15" url="https://pje.tjpb.jus.br/pje/ConsultaPublica/listView.seam" seletor="a[onclick*='/pje/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://pje.tjpb.jus.br" sitekey=""/>
+        <portal uf="PE" codigo_cpj="8.17" url="https://pje.app.tjpe.jus.br/1g/ConsultaPublica/listView.seam" seletor="a[onclick*='/1g/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://pje.app.tjpe.jus.br" sitekey=""/>
+        <portal uf="PI" codigo_cpj="8.18" url="https://tjpi.pje.jus.br/1g/ConsultaPublica/listView.seam" seletor="a[onclick*='/1g/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://tjpi.pje.jus.br" sitekey=""/>
+        <portal uf="RN" codigo_cpj="8.20" url="https://pje1g.tjrn.jus.br/pje/ConsultaPublica/listView.seam" seletor="a[onclick*='/1g/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://tjpi.pje.jus.br" sitekey=""/>
+        <portal uf="RO" codigo_cpj="8.22" url="https://pjepg.tjro.jus.br/consulta/ConsultaPublica/listView.seam" seletor="a[onclick*='/consulta/ConsultaPublica/DetalheProcessoConsultaPublica/listView.seam?ca=']" parcial="https://pjepg.tjro.jus.br" sitekey=""/>
+    </sistema>
+</portais>
