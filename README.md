@@ -18,9 +18,9 @@ Trata-se de automação (bot) construída em Python 3x, que realiza consultas pr
 ### Bibliotecas:
 * Python 3x+, devendo atentar-se ao suporte das libs (consulta disponível no pyreadiness.org)
 * A automação utiliza a biblioteca Selenium, tendo suporte para todas as versões 3.141.0 ou as mais atuais 4+, dentre outras.
-* O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib webdriver-manager (a partir da versão 3.0 e pela chromedriver-autoinstaller na versão 1.0 e 2.0)
+* O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib webdriver-manager (anteriormente utilizada a lib chromedriver-autoinstaller)
 * Para gestão da planilha é utilizada a biblioteca pandas, em qualquer versão da lib.
-* Para gestão da utilização do SQL é utilizada a biblioteca mysql (a partir da versão 3.0)
+* Para gestão da utilização do SQL (a partir da versão 3.0) é utilizada a biblioteca mysql
 * As outras bibliotecas já instaladas já são padrões do Python, entre elas: json; os; datetime
 
 ### Utilização:
@@ -40,14 +40,13 @@ Trata-se de automação (bot) construída em Python 3x, que realiza consultas pr
 ### Arquitetura
 A automação foi desenvolvida em uma estrutura a evitar falhas/pausas(parciais ou totais) da automação, tendo diversas características essenciais:
 * Adaptação a instabilidade do sistema (caso o sistema esteja mais lento ou mais rápido, a adaptação irá se adaptar ao surgimento dos elementos e interagir com eles assim que possível for);
-* Estrutura de repetição (caso aconteça algum erro durante a captura das movimentações, a automação realizará uma nova tentativa de captura no mesmo processo);
 * Verificação de duplicidade (caso seja necessário pausar a automação e retomá-la posteriormente, ela não realizará a consulta no mesmo processo, mantendo a planilha de resultados enxuta);
 
 ### Desempenho:
 <b>São realizadas, em média, entre 15-20 consultas por minuto, ou seja, entre 900-1200 consultas por hora</b> (estes números podem variar para mais ou para menos, de acordo com a velocidade do sistema).
 
 ### Resultado:
-Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data padrão dd-mm-aaaa-consultas.xlsx, ficando o arquivo disponível no caminho: C:/consulta_pjepb
+Os resultados da consulta serão cadastrados em uma planilha (versão padrão de uso XLSX) nomeada com a data padrão dd-mm-aaaa_resultados.xlsx ou em banco SQL
 
 <div id="versoes"/>
 
@@ -59,5 +58,9 @@ Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data
 <div id="demonstracao"/>
 
 ## Demonstração
+Funcionamento via SQL
+![sql](https://user-images.githubusercontent.com/87952070/202148344-0a2b9fa6-9f5c-4aca-8300-4758103a7cc3.png)
+
+Vídeo (versão 1.0)
 [![Vídeo de desempenho disponível](https://user-images.githubusercontent.com/87952070/140660877-507cefee-2009-49cf-9c16-7ca47f257876.png)
 ](https://youtu.be/bO7ZXjKHlY4)
