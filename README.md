@@ -24,8 +24,8 @@ Trata-se de automação (bot) construída em Python 3x, que realiza consultas pr
 * As outras bibliotecas já instaladas já são padrões do Python, entre elas: json; os; datetime
 
 ### Utilização:
-* A automação consome uma planilha que deve ser nomeada com a data do dia, em formato dd-mm-aaaa, como por exemplo: 07-11-2021.xlsx
-* A referida planilha deve estar dentro da pasta C:/movimentacoes_processuais (a partir da versão 3.0, antes disso C:/consulta_pje)
+* A automação possui suporte para duas formas de funcionamento, via planilha XLSX e via SQL (a partir da versão 3.0)
+* Para utilização via XLSX: consome uma planilha que deve ser nomeada com a data do dia, em formato dd-mm-aaaa, como por exemplo: 07-11-2021.xlsx, devendo a referida planilha deve estar dentro da pasta C:/movimentacoes_processuais (a partir da versão 3.0, antes disso C:/consulta_pje)
 * A partir da versão 3.0 o caminho padrão da pasta da planilha pode ser livremente alterado em /config/config.ini
 * A partir da versão 3.0 há possibilidade de utilização via SQL, devendo ser configurado no arquivo /config/config.ini e com modelo de estrutura de tabelas em /data/database.sql
 * Para utilização via XLSX: Os números dos processos devem estar preenchidos na primeira coluna, em linhas separadas, podendo estar em formato apenas numérico ou com seus devidos caracteres especiais (ex.: 08020154020208150251 ou 0802015-40.2020.8.15.0251)
