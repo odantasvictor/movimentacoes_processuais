@@ -1,7 +1,7 @@
 # Automação - Captura de movimentações processuais - PJE
 
 ## Sumário
-- [Sobre](#sobre)
+- [Sobre](#sobre) 
 - [Orientações de uso](#orientacoes)
 - [Arquitetura e Funcionalidade](#funcionalidade)
 - [Demonstração](#demonstracao)
@@ -10,7 +10,7 @@
 <div id="sobre"/>
 
 ## Sobre
-Trata-se de automação (bot) construída em Python 3x, que realiza consultas processuais, através da consulta pública, e realiza a captura das últimas movimentações (data, hora e movimentação), preenchendo os dados em uma planilha do tipo excel (.xlsx).
+Trata-se de automação (bot) construída em Python 3x, que realiza consultas processuais, através da consulta pública, e realiza a captura das últimas movimentações (data, hora e movimentação), preenchendo os dados em uma planilha do tipo excel (.xlsx) ou em banco de dados MySQL.
 
 <div id="orientacoes"/>
 
@@ -18,15 +18,20 @@ Trata-se de automação (bot) construída em Python 3x, que realiza consultas pr
 ### Bibliotecas:
 * Python 3x+, devendo atentar-se ao suporte das libs (consulta disponível no pyreadiness.org)
 * A automação utiliza a biblioteca Selenium, tendo suporte para todas as versões 3.141.0 ou as mais atuais 4+, dentre outras.
-* O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib chromedriver-autoinstaller
-* Para gestão da planilha é utilizado a biblioteca pandas, em qualquer versão da lib.
+* O chromedriver é instalado dinamicamente, para tanto é necessário a instalação da lib webdriver-manager (a partir da versão 3.0 e pela chromedriver-autoinstaller na versão 1.0 e 2.0)
+* Para gestão da planilha é utilizada a biblioteca pandas, em qualquer versão da lib.
+* Para gestão da utilização do SQL é utilizada a biblioteca mysql (a partir da versão 3.0)
 * As outras bibliotecas já instaladas já são padrões do Python, entre elas: json; os; datetime
 
 ### Utilização:
 * A automação consome uma planilha que deve ser nomeada com a data do dia, em formato dd-mm-aaaa, como por exemplo: 07-11-2021.xlsx
-* A referida planilha deve estar dentro da pasta C:/consulta_pje
-* Os números dos processos devem estar preenchidos na primeira coluna, em linhas separadas, podendo estar em formato apenas numérico ou com seus devidos caracteres especiais (ex.: 08020154020208150251 ou 0802015-40.2020.8.15.0251)
-* A primeira linha da planilha deve conter o nome Processos
+* A referida planilha deve estar dentro da pasta C:/movimentacoes_processuais (a partir da versão 3.0, antes disso C:/consulta_pje)
+* A partir da versão 3.0 o caminho padrão da pasta da planilha pode ser livremente alterado em /config/config.ini
+* A partir da versão 3.0 há possibilidade de utilização via SQL, devendo ser configurado no arquivo /config/config.ini e com modelo de estrutura de tabelas em /data/database.sql
+* Para utilização via XLSX: Os números dos processos devem estar preenchidos na primeira coluna, em linhas separadas, podendo estar em formato apenas numérico ou com seus devidos caracteres especiais (ex.: 08020154020208150251 ou 0802015-40.2020.8.15.0251)
+* Para utilização via XLSX: A primeira linha da planilha deve conter o nome Processos
+* Para utilização via SQL: Deve existir obrigatoriamente a estrutura SQL contida em /data/database.sql
+* Para utilização via SQL: Cada processo é atualizado 1x ao dia, havendo ainda tratamento para evitar duplicidade no lançamento da movimentação ao banco
 * Os processos devem pertencer, obrigatoriamente, a qualquer UF que utilize o sistema PJE - CNJ.
 
 <div id="funcionalidade"/>
@@ -49,6 +54,7 @@ Os resultados da consulta serão cadastrados em uma planilha, nomeada com a data
 ## Versões
 * v1.0 - A versão 1 utilizava a biblioteca openpyxl para tratamento dos arquivos XLSX (leitura e anotações);
 * v2.0 - A versão 2 utiliza a biblioteca pandas para tratamento dos arquivos XLSX (leitura e anotações), permitindo grande avanço na OO e limpeza do código.
+* v3.0 - A versão 3 recebeu grande atualização na estrutura do repositório, tanto de repositório quanto de funcionalidades. O modo de utilização anterior (via XLSX) permanece por padrão, mas também há suporte para utilização via banco de dados, devendo ser configurado no arquivo .ini e com modelo de SQL na pasta /data. A opção entre o tipo de execução (planilha XLSX ou SQL) deve ser atribuída como true no arquivo .ini, devendo a outra ser atribuída como false  (caso contrário executará via planilha por padrão).
 
 <div id="demonstracao"/>
 
